@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns = ['date_posted', 'title', 'category', 'delete'];
+  data = this.dataService.getData();
+
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
   }
