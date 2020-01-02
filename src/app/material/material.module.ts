@@ -10,6 +10,9 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -22,9 +25,15 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
     MatCardModule,
     MatButtonModule,
     MatTableModule,

@@ -8,22 +8,29 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MaterialModule} from './material/material.module';
+import { PostDialogComponent } from './post-dialog/post-dialog.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    PostDialogComponent
+  ]
 })
 export class AppModule {
 }
