@@ -44,6 +44,8 @@ export class AuthService {
   }
 
   public logout(): void {
+
+    this.auth0.logout({clientID: "aaIbGMiRRwMImwiNFk4HrcBYQ2V3ihd5"});
     // Remove tokens and expiry time from localStorage
     this.accessToken = null;
     this.expiresAt = null;
