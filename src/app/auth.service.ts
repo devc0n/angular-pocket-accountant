@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
+import {CanActivate, Router} from '@angular/router';
 import * as auth0 from 'auth0-js';
 
 // why do you need defining window as any?
@@ -9,7 +9,7 @@ import * as auth0 from 'auth0-js';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements CanActivate {
 
   auth0 = new auth0.WebAuth({
     clientID: 'aaIbGMiRRwMImwiNFk4HrcBYQ2V3ihd5',
@@ -58,4 +58,17 @@ export class AuthService {
     // Access Token's expiry time
     return new Date().getTime() < this.expiresAt;
   }
+
+  /**
+   * Check if user is logged in.
+   * if not, redirect to login page.
+   */
+  canActivate() {
+    if (this.isAuthenticated()) {
+      return true;
+    }
+    this.login();
+    return false;
+  }
+
 }
