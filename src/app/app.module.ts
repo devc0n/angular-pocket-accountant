@@ -11,6 +11,8 @@ import {MaterialModule} from './material/material.module';
 import { PostDialogComponent } from './post-dialog/post-dialog.component';
 import {FormsModule} from "@angular/forms";
 import {ProfileComponent} from "./profile/profile.component";
+import {HttpClientModule} from "@angular/common/http";
+import { ExternalApiComponent } from './external-api/external-api.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import {ProfileComponent} from "./profile/profile.component";
     WelcomeComponent,
     DashboardComponent,
     PostDialogComponent,
-    ProfileComponent
+    ProfileComponent,
+    ExternalApiComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import {ProfileComponent} from "./profile/profile.component";
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
