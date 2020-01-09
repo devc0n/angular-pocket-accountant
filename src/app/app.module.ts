@@ -10,13 +10,15 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MaterialModule} from './material/material.module';
 import { PostDialogComponent } from './post-dialog/post-dialog.component';
 import {FormsModule} from "@angular/forms";
+import {ProfileComponent} from "./profile/profile.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     DashboardComponent,
-    PostDialogComponent
+    PostDialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
