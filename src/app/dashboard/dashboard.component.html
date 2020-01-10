@@ -4,7 +4,7 @@
     <div class="container">
       <div class="content" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
            fxLayoutGap="20px">
-        <div class="blocks" *ngIf="auth.isAuthenticated()">
+        <div class="blocks" *ngIf="auth.loggedIn">
 
         </div>
       </div>
@@ -15,7 +15,7 @@
         <mat-card class="card">
           <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
             <h3>Recent Posts</h3>
-            <div style="position: absolute; right: 1em; top: 1em;" class="blocks" *ngIf="auth.isAuthenticated()">
+            <div style="position: absolute; right: 1em; top: 1em;" class="blocks" *ngIf="auth.loggedIn">
               <button button="submit" mat-raised-button color="primary" (click)="openDialog()">
                 <mat-icon>add</mat-icon>
                 Add Post

@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   }
 
   deletePost(id) {
-    if (this.auth.isAuthenticated()) {
+    if (this.auth.isAuthenticated$) {
       this.dataService.deletePost(id);
       this.data = this.dataService.getData();
     } else {

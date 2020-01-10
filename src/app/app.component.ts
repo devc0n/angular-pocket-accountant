@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'angular-pocket-accountant';
 
   constructor(public auth: AuthService) {
-    auth.handleAuthentication();
+    auth.handleRedirectCallback$;
   }
 
 }
