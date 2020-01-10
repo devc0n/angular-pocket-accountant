@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from '../data.service';
-import {AuthService} from "../auth.service";
-import {PostDialogComponent} from "../post-dialog/post-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
+import {AuthService} from '../auth.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ApiService} from '../api.service';
+import {PostDialogComponent} from '../post-dialog/post-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,32 +11,36 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class DashboardComponent implements OnInit {
 
-  displayedColumns = ['date_posted', 'title', 'category', 'delete'];
-  data = this.dataService.getData();
+  displayedColumns = ['id', 'first_name', 'last_name'];
+  data: [];
 
-  constructor(private dataService: DataService, public auth: AuthService, public dialog: MatDialog) {
+
+  constructor(private api: ApiService, public auth: AuthService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.api.ping$().subscribe(
+      res => this.data = res
+    );
   }
 
-  deletePost(id) {
-    if (this.auth.isAuthenticated$) {
-      this.dataService.deletePost(id);
-      this.data = this.dataService.getData();
-    } else {
-      alert('Login in Before');
-    }
-  }
+  // deletePost(id) {
+  //   if (this.auth.isAuthenticated$) {
+  //     this.dataService.deletePost(id);
+  //     this.data = this.dataService.getData();
+  //   } else {
+  //     alert('Login in Before');
+  //   }
+  // }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(PostDialogComponent, {
+    const dialogRef = this.dialog.open(PostDialogComponent, {
       width: '600px',
       data: 'Add Post'
     });
     dialogRef.componentInstance.event.subscribe((result) => {
-      this.dataService.addPost(result.data);
-      this.data = this.dataService.getData();
+      // this.dataService.addPost(result.data);
+      // this.data = this.dataService.getData();
     });
   }
 

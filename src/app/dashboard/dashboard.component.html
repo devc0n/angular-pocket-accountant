@@ -14,11 +14,11 @@
       <div class="content" fxLayout="row" fxLayoutAlign="center center">
         <mat-card class="card">
           <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <h3>Recent Posts</h3>
+            <h3>My services</h3>
             <div style="position: absolute; right: 1em; top: 1em;" class="blocks" *ngIf="auth.loggedIn">
-              <button button="submit" mat-raised-button color="primary" (click)="openDialog()">
+              <button (click)="openDialog()" button="submit" mat-raised-button color="primary">
                 <mat-icon>add</mat-icon>
-                Add Post
+                Add service
               </button>
             </div>
           </mat-card-title>
@@ -27,25 +27,25 @@
               <mat-table [dataSource]="data">
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                <ng-container matColumnDef="date_posted">
-                  <mat-header-cell *matHeaderCellDef> Date Posted</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.date_posted  | date: 'd/M/y'}} </mat-cell>
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="title">
-                  <mat-header-cell *matHeaderCellDef> Title</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                <ng-container matColumnDef="total">
+                  <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="category">
-                  <mat-header-cell *matHeaderCellDef> Category</mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+                <ng-container matColumnDef="tax">
+                  <mat-header-cell *matHeaderCellDef>Tax</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.tax}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="delete">
-                  <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    <a (click)="deletePost(element.position)" type="button">
-                      <mat-icon class="icon">delete</mat-icon>
-                    </a>
-                  </mat-cell>
+                <ng-container matColumnDef="subtotal">
+                  <mat-header-cell *matHeaderCellDef>Price (no tax)</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.subtotal}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="time">
+                  <mat-header-cell *matHeaderCellDef>Time (in hours)</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
                 </ng-container>
               </mat-table>
             </div>

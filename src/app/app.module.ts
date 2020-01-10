@@ -8,11 +8,12 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MaterialModule} from './material/material.module';
-import { PostDialogComponent } from './post-dialog/post-dialog.component';
-import {FormsModule} from "@angular/forms";
-import {ProfileComponent} from "./profile/profile.component";
-import {HttpClientModule} from "@angular/common/http";
-import { ExternalApiComponent } from './external-api/external-api.component';
+import {PostDialogComponent} from './post-dialog/post-dialog.component';
+import {FormsModule} from '@angular/forms';
+import {ProfileComponent} from './profile/profile.component';
+import {HttpClientModule} from '@angular/common/http';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ExternalApiComponent } from './external-api/external-api.component';
     DashboardComponent,
     PostDialogComponent,
     ProfileComponent,
-    ExternalApiComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,7 @@ import { ExternalApiComponent } from './external-api/external-api.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[
+  entryComponents: [
     PostDialogComponent
   ]
 })
