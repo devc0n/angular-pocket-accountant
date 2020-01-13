@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ApiService} from '../api.service';
-import {PostDialogComponent} from '../post-dialog/post-dialog.component';
+import {ServiceDialogComponent} from "../service-dialog/service-dialog.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ import {PostDialogComponent} from '../post-dialog/post-dialog.component';
 })
 export class DashboardComponent implements OnInit {
 
-  displayedColumns = ['id', 'first_name', 'last_name'];
+  displayedColumns = ['description', 'total', 'tax', 'subtotal', 'time'];
   data: [];
 
 
@@ -19,9 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.ping$().subscribe(
-      res => this.data = res
-    );
+    this.updateServicesList();
   }
 
   // deletePost(id) {
@@ -34,14 +32,23 @@ export class DashboardComponent implements OnInit {
   // }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(PostDialogComponent, {
+    const dialogRef = this.dialog.open(ServiceDialogComponent, {
       width: '600px',
-      data: 'Add Post'
+      data: 'Add Service'
     });
     dialogRef.componentInstance.event.subscribe((result) => {
-      // this.dataService.addPost(result.data);
-      // this.data = this.dataService.getData();
+      this.api.addService$(result.data).subscribe(
+        it => this.updateServicesList(),
+        error => alert('Whoops, something went wrong!'))
     });
+  }
+
+  updateServicesList() {
+    this.api.getServices$().subscribe(
+      res => this.data = res,
+      error => console.warn(error),
+      () => console.log(this.data)
+    );
   }
 
 }

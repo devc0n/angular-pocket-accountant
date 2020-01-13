@@ -12,7 +12,8 @@ import {PostDialogComponent} from './post-dialog/post-dialog.component';
 import {FormsModule} from '@angular/forms';
 import {ProfileComponent} from './profile/profile.component';
 import {HttpClientModule} from '@angular/common/http';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {NavBarComponent} from './nav-bar/nav-bar.component';
+import {ServiceDialogComponent} from './service-dialog/service-dialog.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     PostDialogComponent,
     ProfileComponent,
     NavBarComponent,
+    ServiceDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    PostDialogComponent
+    ServiceDialogComponent
   ]
 })
 export class AppModule {
