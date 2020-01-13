@@ -61,7 +61,6 @@ export class AuthService {
   }
 
   private localAuthSetup() {
-    console.log('%c Local auth setup has ran! ', 'background: #222; color: #bada55');
     // This should only be called on app initialization
     // Set up local authentication streams
     const checkAuth$ = this.isAuthenticated$.pipe(
