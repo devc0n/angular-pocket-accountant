@@ -1,3 +1,11 @@
+<div class="container">
 <pre *ngIf="auth.userProfile$ | async as profile">
-<code>{{ profile | json }}</code>
+  <code>{{ profile | json }}</code>
 </pre>
+  <button button="submit" mat-raised-button color="warn" (click)="auth.logout()">
+    <mat-icon>lock_open</mat-icon>
+    LogOut
+  </button>
+</div>
+
+

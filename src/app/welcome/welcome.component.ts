@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
-import {Router} from "@angular/router";
-import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-welcome',

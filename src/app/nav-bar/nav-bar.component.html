@@ -2,28 +2,28 @@
   <mat-sidenav #sidenav role="navigation">
     <mat-nav-list>
       <a mat-list-item
-         *ngIf="auth.loggedIn"
-         routerLink="/dashboard">
-        <mat-icon class="icon">dashboard</mat-icon>
-        <span class="label">Dashboard</span>
-      </a>
-      <a mat-list-item
          *ngIf="auth.userProfile$ | async as profile"
          routerLink="/profile">
-        <img class="icon" src="{{profile.picture}}">
-        <span class="label">Profile</span>
-      </a>
-      <a mat-list-item
-         *ngIf="!auth.loggedIn"
-         (click)="auth.login()">
-        <mat-icon class="icon">input</mat-icon>
-        <span class="label">Login</span>
+        <img style="border-radius: 50%; padding: 0" class="icon" src="{{profile.picture}}">
+        <span style="padding-left: 10px" class="label">Profile</span>
       </a>
       <a mat-list-item
          *ngIf="auth.loggedIn"
-         (click)="auth.logout()" type="button">
-        <mat-icon class="icon">input</mat-icon>
-        <span class="label">LogOut</span>
+         routerLink="/income">
+        <mat-icon class="icon">trending_up</mat-icon>
+        <span class="label">Income</span>
+      </a>
+      <a mat-list-item
+         *ngIf="auth.loggedIn"
+         routerLink="/expenses">
+        <mat-icon class="icon">trending_down</mat-icon>
+        <span class="label">Expenses</span>
+      </a>
+      <a mat-list-item
+         *ngIf="auth.loggedIn"
+         routerLink="/overview">
+        <mat-icon class="icon">restore_page</mat-icon>
+        <span class="label">Overview</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -35,7 +35,7 @@
         </button>
       </div>
       <div>
-        <a routerLink="/">
+        <a routerLink="/dashboard">
           Pocket accountant
         </a>
       </div>
@@ -44,34 +44,33 @@
           <li>
             <a
               *ngIf="auth.loggedIn"
-              routerLink="/dashboard">
-              <mat-icon class="icon">dashboard</mat-icon>
-              <span class="label">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a
-              *ngIf="auth.userProfile$ | async as profile"
-              routerLink="/profile">
-              <img class="icon" src="{{profile.picture}}">
-              <span class="label">Profile</span>
-            </a>
-          </li>
-          <li>
-            <a
-              *ngIf="!auth.loggedIn"
-              (click)="auth.login()">
-              <mat-icon class="icon">input</mat-icon>
-              <span class="label">Login</span>
+              routerLink="/income">
+              <mat-icon class="icon">trending_up</mat-icon>
+              <span class="label">Income</span>
             </a>
           </li>
           <li>
             <a
               *ngIf="auth.loggedIn"
-              (click)="auth.logout()" type="button"
-            >
-              <mat-icon class="icon">input</mat-icon>
-              <span class="label">LogOut</span>
+              routerLink="/expenses">
+              <mat-icon class="icon">trending_down</mat-icon>
+              <span class="label">Expenses</span>
+            </a>
+          </li>
+          <li>
+            <a
+              *ngIf="auth.loggedIn"
+              routerLink="/overview">
+              <mat-icon class="icon">restore_page</mat-icon>
+              <span class="label">Overview</span>
+            </a>
+          </li>
+          <li style="width: min-content">
+            <a
+              *ngIf="auth.userProfile$ | async as profile"
+              routerLink="/profile">
+              <img style="border-radius: 50%; padding: 0; width: 30px" class="icon" src="{{profile.picture}}">
+              <span style="padding-left: 10px" class="label">{{profile.email}}</span>
             </a>
           </li>
         </ul>

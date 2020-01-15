@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageInvoicesComponent } from './page-invoices.component';
+import { PageDashboardComponent } from './page-dashboard.component';
 
-describe('PageInvoicesComponent', () => {
-  let component: PageInvoicesComponent;
-  let fixture: ComponentFixture<PageInvoicesComponent>;
+describe('PageDashboardComponent', () => {
+  let component: PageDashboardComponent;
+  let fixture: ComponentFixture<PageDashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageInvoicesComponent ]
+      declarations: [ PageDashboardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageInvoicesComponent);
+    fixture = TestBed.createComponent(PageDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

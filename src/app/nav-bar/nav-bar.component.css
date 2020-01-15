@@ -6,6 +6,10 @@ mat-sidenav {
   width: 250px;
 }
 
+mat-sidenav-content{
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none;
   color: white;

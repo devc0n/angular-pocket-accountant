@@ -13,7 +13,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ServiceDialogComponent} from './service-dialog/service-dialog.component';
-import { PageInvoicesComponent } from './page-invoices/page-invoices.component';
+import {PageDashboardComponent} from './page-dashboard/page-dashboard.component';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { PageInvoicesComponent } from './page-invoices/page-invoices.component';
     ProfileComponent,
     NavBarComponent,
     ServiceDialogComponent,
-    PageInvoicesComponent,
+    PageDashboardComponent,
   ],
   imports: [
     BrowserModule,
