@@ -13,6 +13,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatListModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   exports: [
     MatDialogModule,
@@ -41,7 +43,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule {

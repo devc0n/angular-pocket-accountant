@@ -1,0 +1,39 @@
+.container {
+  background: red;
+}
+
+.content {
+  -webkit-box-shadow: 8px 8px 5px 0px rgba(214, 214, 214, 0.75);
+  -moz-box-shadow: 8px 8px 5px 0px rgba(214, 214, 214, 0.75);
+  box-shadow: 8px 8px 5px 0px rgba(214, 214, 214, 0.75);
+}
+.tile {
+  margin: 8px;
+  text-align: center;
+  height: 45vh;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: black;
+}
+.flex-content {
+  background: lightblue;
+  flex-basis: 49%;
+}
+
+@media(min-width: 768px) {
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: black;
+  }
+  .flex-content {
+    background: lightblue;
+    flex-basis: 30%;
+  }
+}
