@@ -8,12 +8,12 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MaterialModule} from './material/material.module';
-import {PostDialogComponent} from './post-dialog/post-dialog.component';
 import {FormsModule} from '@angular/forms';
 import {ProfileComponent} from './profile/profile.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ServiceDialogComponent} from './service-dialog/service-dialog.component';
+import { PageInvoicesComponent } from './page-invoices/page-invoices.component';
 
 
 @NgModule({
@@ -21,10 +21,10 @@ import {ServiceDialogComponent} from './service-dialog/service-dialog.component'
     AppComponent,
     WelcomeComponent,
     DashboardComponent,
-    PostDialogComponent,
     ProfileComponent,
     NavBarComponent,
     ServiceDialogComponent,
+    PageInvoicesComponent,
   ],
   imports: [
     BrowserModule,
