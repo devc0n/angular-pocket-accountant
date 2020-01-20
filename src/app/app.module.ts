@@ -14,9 +14,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ServiceDialogComponent} from './service-dialog/service-dialog.component';
 import {PageDashboardComponent} from './page-dashboard/page-dashboard.component';
-import { PageIncomeComponent } from './page-income/page-income.component';
-import { PageExpensesComponent } from './page-expenses/page-expenses.component';
-import { PageOverviewComponent } from './page-overview/page-overview.component';
+import {PageIncomeComponent} from './page-income/page-income.component';
+import {PageExpensesComponent} from './page-expenses/page-expenses.component';
+import {PageOverviewComponent} from './page-overview/page-overview.component';
+import {InvoiceDialogComponent} from './invoice-dialog/invoice-dialog.component';
 
 
 @NgModule({
@@ -31,20 +32,21 @@ import { PageOverviewComponent } from './page-overview/page-overview.component';
     PageIncomeComponent,
     PageExpensesComponent,
     PageOverviewComponent,
+    InvoiceDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FlexLayoutModule,
-        MaterialModule,
-        FormsModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MaterialModule,
+    FormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    ServiceDialogComponent
+    InvoiceDialogComponent
   ]
 })
 export class AppModule {
