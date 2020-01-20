@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     dialogRef.componentInstance.event.subscribe((result) => {
       this.api.addService$(result.data).subscribe(
         it => this.updateServicesList(),
-        error => alert('Whoops, something went wrong!'))
+        error => alert('Whoops, something went wrong!'));
     });
   }
 

@@ -14,6 +14,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {ServiceDialogComponent} from './service-dialog/service-dialog.component';
 import {PageDashboardComponent} from './page-dashboard/page-dashboard.component';
+import { PageIncomeComponent } from './page-income/page-income.component';
+import { PageExpensesComponent } from './page-expenses/page-expenses.component';
+import { PageOverviewComponent } from './page-overview/page-overview.component';
 
 
 @NgModule({
@@ -25,6 +28,9 @@ import {PageDashboardComponent} from './page-dashboard/page-dashboard.component'
     NavBarComponent,
     ServiceDialogComponent,
     PageDashboardComponent,
+    PageIncomeComponent,
+    PageExpensesComponent,
+    PageOverviewComponent,
   ],
     imports: [
         BrowserModule,
