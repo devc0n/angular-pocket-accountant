@@ -46,8 +46,7 @@ export class DashboardComponent implements OnInit {
   updateServicesList() {
     this.api.getServices$().subscribe(
       res => this.data = res,
-      error => console.warn(error),
-      () => console.log(this.data)
+      error => console.warn(error)
     );
   }
 

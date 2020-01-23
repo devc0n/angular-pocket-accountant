@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{data}}</h1>
+<div mat-dialog-content>
+  <form class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matNativeControl placeholder="Invoice description" type="text" required [(ngModel)]="newInvoice.description"
+             name="description">
+    </mat-form-field>
+    <mat-form-field>
+      <input matNativeControl placeholder="Total price" type="number" required [(ngModel)]="newInvoice.total" name="total">
+    </mat-form-field>
+    <mat-form-field>
+      <input matNativeControl placeholder="Tax percentage" type="number" required [(ngModel)]="newInvoice.taxPercentage"
+             name="tax">
+    </mat-form-field>
+    <mat-form-field>
+      <input matNativeControl placeholder="Time spent in hours" type="number" required [(ngModel)]="newInvoice.time"
+             name="time">
+    </mat-form-field>
+    <mat-form-field>
+      <input matNativeControl type="date" [(ngModel)]="newInvoice.date" name="date">
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
+</div>
