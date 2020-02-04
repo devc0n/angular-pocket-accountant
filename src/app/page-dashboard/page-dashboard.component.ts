@@ -52,11 +52,11 @@ export class PageDashboardComponent implements OnInit {
   }
 
   updateDashboard() {
-    this.api.listInvoices().subscribe(
+    this.api.listInvoices$().subscribe(
       res => this.updateIncome(res),
       error => console.warn(error)
     );
-    this.api.listInvoices().subscribe(
+    this.api.listInvoices$().subscribe(
       res => this.updateExpenses([]),
       error => console.warn(error)
     );

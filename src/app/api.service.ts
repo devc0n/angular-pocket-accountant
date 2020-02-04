@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  listInvoices(): Observable<any> {
+  listInvoices$(): Observable<any> {
     return this.http.get('/api/invoices/list')
   }
 
@@ -20,12 +20,12 @@ export class ApiService {
     return this.http.post('/api/invoices', invoiceRequestDTO);
   }
 
-  getServices$(): Observable<any> {
-    return this.http.get('/api/services/list')
+  listExpenses$(): Observable<any> {
+    return this.http.get('/api/expenses/list')
   }
 
-  addService$(serviceRequestDTO: ServiceRequestDTO): Observable<any> {
-    return this.http.post('/api/services', serviceRequestDTO);
+  addExpense$(serviceRequestDTO: ServiceRequestDTO): Observable<any> {
+    return this.http.post('/api/expenses', serviceRequestDTO);
   }
 
 }

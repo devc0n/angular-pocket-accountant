@@ -35,7 +35,7 @@ export class PageIncomeComponent implements OnInit {
   }
 
   updateInvoicesList() {
-    this.api.listInvoices().subscribe(
+    this.api.listInvoices$().subscribe(
       res => this.data = res,
       error => console.warn(error)
     );

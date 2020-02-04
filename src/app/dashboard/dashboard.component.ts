@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.updateServicesList();
+    // this.updateServicesList();
   }
 
   // deletePost(id) {
@@ -31,23 +31,23 @@ export class DashboardComponent implements OnInit {
   //   }
   // }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ServiceDialogComponent, {
-      width: '600px',
-      data: 'Add Service'
-    });
-    dialogRef.componentInstance.event.subscribe((result) => {
-      this.api.addService$(result.data).subscribe(
-        it => this.updateServicesList(),
-        error => alert('Whoops, something went wrong!'));
-    });
-  }
-
-  updateServicesList() {
-    this.api.getServices$().subscribe(
-      res => this.data = res,
-      error => console.warn(error)
-    );
-  }
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(ServiceDialogComponent, {
+  //     width: '600px',
+  //     data: 'Add Service'
+  //   });
+  //   dialogRef.componentInstance.event.subscribe((result) => {
+  //     this.api.addService$(result.data).subscribe(
+  //       it => this.updateServicesList(),
+  //       error => alert('Whoops, something went wrong!'));
+  //   });
+  // }
+  //
+  // updateServicesList() {
+  //   this.api.getServices$().subscribe(
+  //     res => this.data = res,
+  //     error => console.warn(error)
+  //   );
+  // }
 
 }

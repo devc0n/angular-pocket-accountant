@@ -18,6 +18,7 @@ import {PageIncomeComponent} from './page-income/page-income.component';
 import {PageExpensesComponent} from './page-expenses/page-expenses.component';
 import {PageOverviewComponent} from './page-overview/page-overview.component';
 import {InvoiceDialogComponent} from './invoice-dialog/invoice-dialog.component';
+import {ExpenseDialogComponent} from './expense-dialog/expense-dialog.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {InvoiceDialogComponent} from './invoice-dialog/invoice-dialog.component'
     PageExpensesComponent,
     PageOverviewComponent,
     InvoiceDialogComponent,
+    ExpenseDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import {InvoiceDialogComponent} from './invoice-dialog/invoice-dialog.component'
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    InvoiceDialogComponent
+    InvoiceDialogComponent,
+    ExpenseDialogComponent
   ]
 })
 export class AppModule {

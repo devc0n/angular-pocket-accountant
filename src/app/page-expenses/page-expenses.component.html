@@ -1,1 +1,54 @@
-<p>page-expenses works!</p>
+<script src="../expense-dialog/expense-dialog.component.ts"></script>
+<div>
+  <br>
+  <div class="container">
+    <div class="container">
+      <div class="content" fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
+           fxLayoutGap="20px">
+        <div class="blocks" *ngIf="auth.loggedIn">
+
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div class="content" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="card">
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Expenses</h3>
+            <div style="position: absolute; right: 1em; top: 1em;" class="blocks" *ngIf="auth.loggedIn">
+              <button (click)="openDialog()" button="submit" mat-raised-button color="primary">
+                <mat-icon>add</mat-icon>
+                Add expense
+              </button>
+            </div>
+          </mat-card-title>
+          <mat-card-content>
+            <div class="example-container mat-elevation-z8">
+              <mat-table [dataSource]="data">
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <ng-container matColumnDef="date">
+                  <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="price">
+                  <mat-header-cell *matHeaderCellDef>Price (excluding Tax)</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="tax">
+                  <mat-header-cell *matHeaderCellDef>Tax</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.tax}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Expense description</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+                </ng-container>
+              </mat-table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
