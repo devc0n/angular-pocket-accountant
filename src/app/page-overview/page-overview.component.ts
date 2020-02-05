@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../api.service";
 import 'rxjs/Rx';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-page-overview',
@@ -12,11 +13,18 @@ export class PageOverviewComponent implements OnInit {
   constructor(private api: ApiService) {
   }
 
+  from: string;
+  until: string;
+
   ngOnInit() {
+    this.from = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+    this.until = formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
 
+
   getOverview() {
-    this.api.downloadOverview$().subscribe(
+    console.log(this.from, this.until);
+    this.api.downloadOverview$(this.from, this.until).subscribe(
       data => this.downloadFile(data)),//console.log(data),
       error => console.log('Error downloading the file.'),
       () => console.info('OK');

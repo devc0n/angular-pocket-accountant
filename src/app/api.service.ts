@@ -28,8 +28,8 @@ export class ApiService {
     return this.http.post('/api/expenses', serviceRequestDTO);
   }
 
-  downloadOverview$(): Observable<any> {
+  downloadOverview$(from: string, until: string): Observable<any> {
     console.log('downloading file');
-    return this.http.get('/api/overview', {responseType: 'text'})
+    return this.http.get('/api/overview?from=' + from + "&until=" + until, {responseType: 'text'})
   }
 }

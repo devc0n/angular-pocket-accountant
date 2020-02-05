@@ -19,6 +19,7 @@ import {PageExpensesComponent} from './page-expenses/page-expenses.component';
 import {PageOverviewComponent} from './page-overview/page-overview.component';
 import {InvoiceDialogComponent} from './invoice-dialog/invoice-dialog.component';
 import {ExpenseDialogComponent} from './expense-dialog/expense-dialog.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {ExpenseDialogComponent} from './expense-dialog/expense-dialog.component'
     FlexLayoutModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
