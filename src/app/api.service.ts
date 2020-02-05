@@ -28,4 +28,8 @@ export class ApiService {
     return this.http.post('/api/expenses', serviceRequestDTO);
   }
 
+  downloadOverview$(): Observable<any> {
+    console.log('downloading file');
+    return this.http.get('/api/overview', {responseType: 'text'})
+  }
 }

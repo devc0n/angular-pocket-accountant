@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from "../api.service";
+import 'rxjs/Rx' ;
 
 @Component({
   selector: 'app-page-overview',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: ApiService) {
+  }
 
   ngOnInit() {
+  }
+
+  getOverview() {
+    this.api.downloadOverview$().subscribe(
+      data => this.downloadFile(data)),//console.log(data),
+      error => console.log('Error downloading the file.'),
+      () => console.info('OK');
+  }
+
+
+  downloadFile(data: Response) {
+    const blob = new Blob([data], { type: 'text/csv' });
+    const url= window.URL.createObjectURL(blob);
+    window.open(url);
   }
 
 }
