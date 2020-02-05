@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../api.service";
-import 'rxjs/Rx' ;
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-page-overview',
@@ -24,8 +24,9 @@ export class PageOverviewComponent implements OnInit {
 
 
   downloadFile(data: Response) {
-    const blob = new Blob([data], { type: 'text/csv' });
-    const url= window.URL.createObjectURL(blob);
+    // @ts-ignore
+    const blob = new Blob([data], {type: 'text/csv'});
+    const url = window.URL.createObjectURL(blob);
     window.open(url);
   }
 
