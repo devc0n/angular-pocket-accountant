@@ -37,7 +37,6 @@ export class PageExpensesComponent implements OnInit {
     this.api.listExpenses$().subscribe(
       res => {
         this.data = res;
-        console.log(res)
       },
       error => console.warn(error)
     );

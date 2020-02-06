@@ -22,7 +22,6 @@ export class ExpenseCardComponent implements OnInit {
     this.api.listExpenses$().subscribe(
       res => {
         for (const expense of res) {
-          console.log(expense)
           this.totalExpenses += expense.price;
           this.subTotalExpenses += (expense.price - expense.tax);
           this.taxes += expense.tax;

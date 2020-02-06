@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-import CanvasJS from 'canvasjs';
+import {Component, OnInit} from '@angular/core';
+import * as CanvasJS from 'src/assets/canvasjs.min.js';
+import {ApiService} from "../api.service";
 
 @Component({
   selector: 'app-profit-graph',
@@ -9,65 +9,62 @@ import CanvasJS from 'canvasjs';
 })
 export class ProfitGraphComponent implements OnInit {
 
-  title = 'canvasjs-angular';
-  ngOnInit() {
-    const dataPoints = [
-      { x: new Date('2018-03-01'), y: 85.3},
-      { x: new Date('2018-03-02'), y: 83.97},
-      { x: new Date('2018-03-05'), y: 83.49},
-      { x: new Date('2018-03-06'), y: 84.16},
-      { x: new Date('2018-03-07'), y: 84.86},
-      { x: new Date('2018-03-08'), y: 84.97},
-      { x: new Date('2018-03-09'), y: 85.13},
-      { x: new Date('2018-03-12'), y: 85.71},
-      { x: new Date('2018-03-13'), y: 84.63},
-      { x: new Date('2018-03-14'), y: 84.17},
-      { x: new Date('2018-03-15'), y: 85.12},
-      { x: new Date('2018-03-16'), y: 85.86},
-      { x: new Date('2018-03-19'), y: 85.17},
-      { x: new Date('2018-03-20'), y: 85.99},
-      { x: new Date('2018-03-21'), y: 86.1},
-      { x: new Date('2018-03-22'), y: 85.33},
-      { x: new Date('2018-03-23'), y: 84.18},
-      { x: new Date('2018-03-26'), y: 85.21},
-      { x: new Date('2018-03-27'), y: 85.81},
-      { x: new Date('2018-03-28'), y: 85.56},
-      { x: new Date('2018-03-29'), y: 88.15}
-    ];
+  constructor(private api: ApiService) {
 
-    const chart = new CanvasJS.Chart('chartContainer', {
-      animationEnabled: true,
-      theme: 'light2',
-      title: {
-        text: 'Stock Price of BMW - March 2018'
-      },
-      axisX: {
-        valueFormatString: 'DD MMM',
-        crosshair: {
-          enabled: true,
-          snapToDataPoint: true
+  }
+
+
+  ngOnInit() {
+
+    let dataPoints = [];
+
+    this.api.listInvoices$().subscribe(
+      res => {
+
+        res.sort((val1, val2) => {
+          return new Date(val1.date) > new Date(val2.date) ? 1 : -1
+        });
+
+        for (const invoice of res) {
+          console.log(new Date(invoice.date));
+          dataPoints.push({x: new Date(invoice.date), y: invoice.total})
         }
+        const chart = new CanvasJS.Chart('chartContainer', {
+          animationEnabled: true,
+          theme: 'light2',
+          title: {
+            text: 'Income, Expenses and Profit of ' + new Date().getFullYear()
+          },
+          axisX: {
+            valueFormatString: 'DD MMM',
+            crosshair: {
+              enabled: true,
+              snapToDataPoint: true
+            }
+          },
+          axisY: {
+            title: 'EURO',
+            includeZero: false,
+            valueFormatString: '€##0.00',
+            crosshair: {
+              enabled: true,
+              snapToDataPoint: true,
+              labelFormatter(e) {
+                return '€' + CanvasJS.formatNumber(e.value, '##0.00');
+              }
+            }
+          },
+          data: [{
+            type: 'area',
+            xValueFormatString: 'DD MMM',
+            yValueFormatString: '€##0.00',
+            dataPoints
+          }]
+        });
+        chart.render();
       },
-      axisY: {
-        title: 'Closing Price (in EUR)',
-        includeZero: false,
-        valueFormatString: '€##0.00',
-        crosshair: {
-          enabled: true,
-          snapToDataPoint: true,
-          labelFormatter(e) {
-            return '€' + CanvasJS.formatNumber(e.value, '##0.00');
-          }
-        }
-      },
-      data: [{
-        type: 'area',
-        xValueFormatString: 'DD MMM',
-        yValueFormatString: '€##0.00',
-        dataPoints
-      }]
-    });
-    chart.render();
+      error => console.warn(error)
+    );
   }
 
 }

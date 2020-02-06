@@ -29,7 +29,6 @@ export class ApiService {
   }
 
   downloadOverview$(from: string, until: string): Observable<any> {
-    console.log('downloading file');
     return this.http.get('/api/overview?from=' + from + "&until=" + until, {responseType: 'text'})
   }
 }

@@ -22,11 +22,9 @@ export class IncomeCardComponent implements OnInit {
     this.api.listInvoices$().subscribe(
       res => {
         for (const invoice of res) {
-          console.log(invoice)
           this.totalIncome += invoice.total;
           this.subTotalIncome += invoice.subtotal;
           this.taxes += invoice.tax;
-          console.log(this.totalIncome);
         }
       },
       error => console.warn(error)

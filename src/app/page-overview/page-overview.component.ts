@@ -23,10 +23,9 @@ export class PageOverviewComponent implements OnInit {
 
 
   getOverview() {
-    console.log(this.from, this.until);
     this.api.downloadOverview$(this.from, this.until).subscribe(
-      data => this.downloadFile(data)),//console.log(data),
-      error => console.log('Error downloading the file.'),
+      data => this.downloadFile(data)),
+      error => console.error('Error downloading the file.'),
       () => console.info('OK');
   }
 
