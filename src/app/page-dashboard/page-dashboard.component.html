@@ -1,12 +1,6 @@
 <div class="container">
-  <mat-grid-list cols="3" rowHeight="3:1">
-    <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.cols"
-      [rowspan]="tile.rows"
-      [id]="tile.id">
-      {{tile.text}} <br>
-      {{tile.value}}
-    </mat-grid-tile>
-  </mat-grid-list>
+  <app-income-card></app-income-card>
+  <app-expense-card></app-expense-card>
+  <app-profit-graph></app-profit-graph>
 </div>
+

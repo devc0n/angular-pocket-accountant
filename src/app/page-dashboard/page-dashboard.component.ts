@@ -29,26 +29,21 @@ export class PageDashboardComponent implements OnInit {
 
   tiles: Tile[] = [
     {id:'tile-income', text: 'Income', value: this.totalIncome, cols: 2, rows: 1, color: 'lightgreen'},
-    {id:'tile-profit', text: 'profit', value: (this.totalIncome - this.totalExpenses), cols: 1, rows: 2, color: 'lightblue'},
-    {id:'tile-expenses', text: 'expenses', value: this.totalExpenses, cols: 2, rows: 1, color: 'lightpink'},
-    {id:'tile-graph', text: 'Graph', cols: 3, rows: 2, color: '#DDBDF1'},
+    {id:'tile-expenses', text: 'expenses', value: this.totalExpenses, cols: 2, rows: 1, color: 'lightpink'}
   ];
 
   updateIncome(res) {
     this.totalIncome = res.length;
     this.tiles[0] = {id:'tile-income', text: 'Income', value: res.length, cols: 2, rows: 1, color: 'lightgreen'};
-    this.updateProfit()
   }
 
   updateExpenses(res) {
     this.totalExpenses = res.length;
-    this.tiles[2] = {id:'tile-expenses', text: 'expenses', value: res.length, cols: 2, rows: 1, color: 'lightpink'};
-    this.updateProfit()
+    this.tiles[1] = {id:'tile-expenses', text: 'expenses', value: res.length, cols: 2, rows: 1, color: 'lightpink'};
   }
 
   updateProfit() {
     let profit = this.totalIncome - this.totalExpenses;
-    this.tiles[1] = {id:'tile-profit', text: 'profit', value: profit, cols: 1, rows: 2, color: 'lightblue'};
   }
 
   updateDashboard() {

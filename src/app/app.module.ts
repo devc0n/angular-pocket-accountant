@@ -20,6 +20,9 @@ import {PageOverviewComponent} from './page-overview/page-overview.component';
 import {InvoiceDialogComponent} from './invoice-dialog/invoice-dialog.component';
 import {ExpenseDialogComponent} from './expense-dialog/expense-dialog.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { IncomeCardComponent } from './income-card/income-card.component';
+import { ExpenseCardComponent } from './expense-card/expense-card.component';
+import { ProfitGraphComponent } from './profit-graph/profit-graph.component';
 
 
 @NgModule({
@@ -36,6 +39,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     PageOverviewComponent,
     InvoiceDialogComponent,
     ExpenseDialogComponent,
+    IncomeCardComponent,
+    ExpenseCardComponent,
+    ProfitGraphComponent,
   ],
   imports: [
     BrowserModule,
